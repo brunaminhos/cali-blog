@@ -1,0 +1,42 @@
+<% if(thoughts !=null ) { %>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <%- thoughts.name %>
+            </li>
+        </ol>
+    </nav>
+
+
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <div class="row">
+                <div class="col-12">
+                    <h1 id="name" >
+                        <%- thoughts.name %>
+                    </h1>
+                </div>
+                <div class="col-12" style="white-space: pre-line;">
+                    <h4>Description</h4>
+                    <%- thoughts.description %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } else { %>
+        <p>No item found.</p>
+        <% } %>
+
+            <section class="px-4 py-5 my-5 text-center">
+
+                <h3 class="display-8 fw-bold">Would you like to make a change to this thought?</h3>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">Miau Miau Miau</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a href="/edit-thoughts/<%= thoughts._id %>" class="btn btn-primary btn-dark btn-lg">Edit</a>
+                        <a href="/delete-thoughts/<%= thoughts.name %>" class="btn btn-primary btn-dark btn-lg">Delete</a>
+                    </div>
+                </div>
+            </section>

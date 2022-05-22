@@ -1,0 +1,71 @@
+ <div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+        <img src="/img/first.png" width="240" height="250" class="d-block mx-lg-auto img-fluid" Loading="lazy" alt="Calis Blog with Node.js">
+    </div>
+
+    <div class="col-12 col-lg-6">
+
+        <h1 class="display-8 fw-bold mb-1">"You will always be lucky if you know how to make friends with strange cats." 
+            - Colonial Proverb </h1>
+        <p class="lead">
+            Everything you need to knwon of how be the best cat ever.How to be a house cat and not feel bored. How to have your meals at 3 am served by your human.
+            How to play hide and seek with your human until she gets tired. All this and more here!
+        </p>
+
+    </div>
+ </div>
+
+
+<!--categories start-->
+
+ <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+
+
+    <% if(categories != '') { %>
+        <% categories.forEach(function(category, index) { %>
+          <a class="col text-center category__link">
+            <div class=" category__img shadow">
+              <img src="img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+            </div>
+            <div class="pt-1"><%- category.name %></div>
+          </a>
+        <% }) %>
+      <% } %>
+
+ </div>
+
+<!--latest star-->
+
+ <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Latest Thoughts</h2>
+      <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+  
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  
+      <% if(play != '') { %>
+        <% play.latest.forEach(function(thoughts, index){ %>
+        <a href="/thoughts/<%= thoughts._id %>" class="col text-center category__link">
+          <div class="pt-1"><%= thoughts.name %></div>
+          <div class="pt-2"><%= thoughts.description %></div>
+        </a>
+        <% }) %>
+      <% } else { %>
+        <p>No items found.</p>
+      <% } %>
+    </div>
+  
+  </section>
+
+ <!--Submit start-->
+ <section class="px-4 py-5 my-5 text-center">
+    
+     <h1 class="display-5 fw-bold">Do you have more tips? Publish here we will love it!</h1>
+     <div class="col-lg-6 mx-auto">
+         <p class="lead mb-4">Miau Miau Miau</p>
+         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+             <a href="submit-thoughts" class="btn btn-primary btn-dark btn-lg">Create</a>
+         </div>
+     </div>
+ </section>
