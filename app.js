@@ -31,7 +31,5 @@ app.set('view engine', 'ejs');
 const routes = require('./server/routes/caliRoutes.js')
 app.use('/', routes);
 
-// app.listen(port, ()=> console.log('Listening to port ${port}'));
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+app.listen(process.env.PORT, ()=> console.log('Listening to port ${port}'));
+
